@@ -8,24 +8,13 @@ class Solution:
         v1 = v1 + [0] * (n - len(v1))
         v2 = v2 + [0] * (n - len(v2))
 
-        output = ""
-
         for i in range(n):
             if v1[i] < v2[i]:
-                output = "L"
-                break
+                return -1
             elif v1[i] > v2[i]:
-                output = "M"
-                break
-            else:
-                output = "E"
+                return 1
 
-        if output == "L":
-            return -1
-        elif output == "M":
-            return 1
-        else:
-            return 0
+        return 0
 
 
 sol = Solution()

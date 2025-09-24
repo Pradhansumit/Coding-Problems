@@ -34,3 +34,6 @@ denominator != 0
 
 ### THOUGHT PROCESS
 First of all check if the numerator is 0. If it is then entire result is going to be 0. Then we need to check for the signs. So the result will be in negative if either of the numerator or denominator is negative. The process now for checking repeating numbers is done through long division process. We are going to have a dictonary mapping the numbers. We are going to divide remainder with the denominator repeatedly. If we see remainder in our map then we are going insert bracket at that index and then close the bracket at the end. Then break the loop. 
+
+WHAT IS THE PATTERN IN THIS? 
+-> TRACK REMAINDER => REPEATING REMAINDER MEANS REPEATING DECIMALS.

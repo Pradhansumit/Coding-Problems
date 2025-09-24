@@ -6,20 +6,39 @@ class Solution:
         if numerator == 0:
             return "0"
 
-        # REQUIRED ANS IS IN STRING
-        fraction: str = str(numerator / denominator)
+        res: list[str] = []
 
-        # FOR CHECKING THE DECIMAL PART IS REPEATING
-        frac_list = fraction.split(".")
+        # CHECK FOR SIGNS
+        if (numerator < 0) ^ (denominator < 0):
+            res.append("-")
 
-        # IF THE NUMBER IS WHOLE. EG., 2.0
-        if frac_list[1] == "0":
-            return frac_list[0]
+        numerator, denominator = abs(numerator), abs(denominator)
 
-        if len(frac_list[1]) > 10:
-            pass
+        # APPENDING THE INTEGER PART
+        res.append(str(numerator // denominator))
 
-        return fraction
+        remainder = numerator % denominator
+        if remainder == 0:
+            return "".join(res)
+
+        res.append(".")
+
+        # FOR LAST SEEN OF REPEATING NUMBER
+        seen = {}
+
+        while remainder:
+            if remainder in seen:
+                idx = seen[remainder]
+                res.insert(idx, "(")
+                res.append(")")
+                break
+
+            seen[remainder] = len(res)
+            remainder *= 10
+            res.append(str(remainder // denominator))
+            remainder %= denominator
+
+        return "".join(res)
 
 
 sol = Solution()

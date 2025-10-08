@@ -1,4 +1,6 @@
+import bisect
 from typing import List
+import math
 
 
 class Solution:
@@ -6,13 +8,15 @@ class Solution:
         self, spells: List[int], potions: List[int], success: int
     ) -> List[int]:
         pairs: List[int] = []
-        for s in spells:
-            count = 0
-            for p in potions:
-                if s * p >= success:
-                    count += 1
-            pairs.append(count)
-
+        potions.sort()
+        potion_count = len(potions)
+        for spell_power in spells:
+            required_strength = math.ceil(success / spell_power)
+            if required_strength > potions[-1]:
+                pairs.append(0)
+                continue
+            index = bisect.bisect_left(potions, required_strength)
+            pairs.append(potion_count - index)
         return pairs
 
 

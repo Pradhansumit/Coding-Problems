@@ -39,4 +39,4 @@ m == potions.length
 1 <= success <= 1010
 
 ### THOUGHT PROCESS
-Check the product of the spell and portion is greater than equal to success if they're then we count it for the given spell. 
+We need to sort the potion so that we can find the potion[i] whose strength with spell is successful. If we are checking for last potion whose strength with given spell is not successful then we just add 0. So now we need to check for that number in the potion list that with spell is the minimum that cross the successful count. After that all the potion will be greater. We can do it using bisect that will give the index of that potion and the we only need to count the potion after that. 

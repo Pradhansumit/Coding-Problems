@@ -40,6 +40,5 @@ Constraints:
  
 
 ### THOUGHT PROCESS
-With brute force we are going to through each of the integers in the array and adding each one after the k steps. With that we are returning the one that has the maximum value gained.
-
-This way were are getting TLE. Because it is going through all the element from the array.
+[-1, -2, -3, 4, -5], 3]
+New method applied is that we are going through the reverse. This way we are going to reduce the steps. Now we have to just check for the each number starting from the back check for like 4 is it maximum? If yes then we take it as answer and we check for ther i-k steps.

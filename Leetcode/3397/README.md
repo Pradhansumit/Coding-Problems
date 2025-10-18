@@ -41,3 +41,5 @@ Constraints:
 
 ### THOUGHT PROCESS
 We can see that we need max number of distinct numbers and the count. So we will be taking set and then we are going to do the operations in each one of elements in the array **nums**. If after operation if this element is present in set then we do the next operation, till we reach the limit. And check if it is the set, if it is we are not going to include it otherwise add it.
+
+In the last commit we can see that we did not sort the array which produced in less distinct numbers.

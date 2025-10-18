@@ -4,6 +4,7 @@ from typing import List
 class Solution:
     def maxDistinctElements(self, nums: List[int], k: int) -> int:
         sett = set()
+        nums.sort()
 
         for n in nums:
             for i in range(-k, k + 1):

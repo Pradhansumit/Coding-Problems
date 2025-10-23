@@ -1,12 +1,15 @@
 class Solution:
     def hasSameDigits(self, s: str) -> bool:
-        while len(s) > 2:
-            new_str = ""
-            for i in range(len(s) - 1):
-                new_str += str((int(s[i]) + int(s[i + 1])) % 10)
-            s = new_str
-
-        return True if s[0] == s[1] else False
+        i: int = 0
+        res = ""
+        while len(s) > 2 and i < len(s) - 1:
+            res += str((int(s[i]) + int(s[i + 1])) % 10)
+            i += 1
+            if i == len(s) - 1:
+                s = res
+                i = 0
+                res = ""
+        return len(s) == 2 and s[0] == s[i + 1]
 
 
 sol = Solution()
